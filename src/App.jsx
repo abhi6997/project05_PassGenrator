@@ -23,15 +23,15 @@ function App() {
     }
 
     setPassword(pass);
-  }, [length, numberAllowed, charAllowed, setPassword]);
+  }, [length, numberAllowed, charAllowed,setPassword]);
 
-  const copyPasswordToClipBoard = useCallback(()=>{
+  const copyPasswordToClipBoard = ()=>{
     passwordRef.current?.select()
     // passwordRef.current?.setSelectionRange(0,9)
     window.navigator.clipboard.writeText(password)
-  },[password])
+  }
 
-  useEffect(()=>{passwordGenerator()},[length,numberAllowed,charAllowed,passwordGenerator])
+  useEffect(()=>{passwordGenerator()},[length,numberAllowed,charAllowed])
   return (
     <>
       <div className="w-1/2 m-auto flex flex-col items-center rounded-lg  bg-gray-400 my-8 gap-4 py-8">
